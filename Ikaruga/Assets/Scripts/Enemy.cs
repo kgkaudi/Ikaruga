@@ -14,13 +14,14 @@ public class Enemy : MonoBehaviour {
 	public EnemyBoundary enemyBoundary;
 
 	public GameObject shot;
-	public GameObject player;
 	public GameObject enemyKiller;
+	public GameObject player;
 	public Transform shotSpawn;
 	public float fireRate;
 	public float secondsToDestroy;
 
 	private float nextFire;
+
 
 	void Start(){
 		DestroyShip();
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour {
 
 	void FixedUpdate(){
 		float moveHorizontal = enemyKiller.transform.position.x;
+		player = GameObject.Find ("Player");
 		float moveVertical = player.transform.position.y;
 
 		Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
